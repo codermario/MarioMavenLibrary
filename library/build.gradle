@@ -30,8 +30,8 @@ dependencies {
 }
 
 
-def siteUrl = 'https://github.com/caijin199410/CommonUtil.git'
-def gitUrl = 'https://github.com/caijin199410/CommonUtil.git'
+def siteUrl = 'https://github.com/codermario/MarioMavenLibrary.git'
+def gitUrl = 'https://github.com/codermario/MarioMavenLibrary.git'
 group = "com.coder.mario"
 install {
     repositories.mavenInstaller {
@@ -93,6 +93,7 @@ bintray {
     user = properties.getProperty("bintray.user")
     configurations = ['archives']
     pkg {
+        userOrg = "codermario"
         repo = "library"
         name = "MarioMavenLibrary"
         websiteUrl = siteUrl
