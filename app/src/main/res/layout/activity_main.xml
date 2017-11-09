@@ -1,23 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:auto="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
     android:layout_height="match_parent"
-    android:layout_width="match_parent" >
+    android:layout_width="match_parent"
+    android:orientation="vertical">
 
-    <com.coder.mario.library.widget.OvershootLayout
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" >
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:padding="12dp" >
 
         <TextView
-            android:layout_centerHorizontal="true"
+            android:gravity="left|center_vertical"
+            android:layout_height="wrap_content"
+            android:text="水平方向左右滑动"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:lines="1" />
+
+        <TextView
+            android:id="@+id/over_scroll_hint_h"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="CoderMario"
-            android:padding="8dp" />
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:text="0" />
+    </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_height="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_weight="3" >
+
+        <com.coder.mario.library.widget.OvershootLayout
+            android:id="@+id/overshoot_layout_h"
+            auto:scroll_orientation="horizontal"
+            android:layout_height="match_parent"
             android:layout_width="match_parent"
-            android:id="@+id/recycler_view"
-            android:overScrollMode="never" />
-    </com.coder.mario.library.widget.OvershootLayout>
-</RelativeLayout>
+            android:background="#FFF1F1F1" >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_horizontal"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:overScrollMode="never" />
+        </com.coder.mario.library.widget.OvershootLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="12dp" >
+
+        <TextView
+            android:gravity="left|center_vertical"
+            android:layout_height="wrap_content"
+            android:text="竖直方向上下滑动"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textSize="20dp"
+            android:lines="1" />
+
+        <TextView
+            android:id="@+id/over_scroll_hint_v"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:textSize="22dp"
+            android:text="0" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:layout_weight="7" >
+
+        <com.coder.mario.library.widget.OvershootLayout
+            android:id="@+id/overshoot_layout_v"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            auto:scroll_orientation="vertical"
+            android:background="#FFF1F1F1" >
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_view_vertical"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:overScrollMode="never" />
+        </com.coder.mario.library.widget.OvershootLayout>
+    </FrameLayout>
+</LinearLayout>
