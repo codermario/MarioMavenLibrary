@@ -2,11 +2,15 @@ package com.mario.library;
 
 import com.coder.mario.library.adapter.SimpleRecyclerAdapter;
 import com.coder.mario.library.holder.SimpleRecyclerViewHolder;
+import com.coder.mario.library.util.MarioUtil;
 import com.coder.mario.library.widget.OvershootLayout;
 
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 import android.view.ViewGroup;
@@ -21,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerViewVertical;
     private TextView mOverScrollHintHorizontal;
     private TextView mOverScrollHintVertical;
+
+    private TextView mPopShow;
+    private TestPop mTestPop;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +85,28 @@ public class MainActivity extends AppCompatActivity {
                 mOverScrollHintVertical.setText(String.valueOf(overScrollY));
             }
         });
+
+        mPopShow = (TextView) findViewById(R.id.pop_show);
+        mPopShow.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                MarioUtil.antiShake(view);
+                if (getTestPop().isShowing()) {
+                    getTestPop().dismiss();
+                } else {
+                    View parent = getWindow().getDecorView();
+                    getTestPop().showAtLocation(parent, Gravity.BOTTOM, 0, 0);
+                }
+            }
+        });
+    }
+
+    private TestPop getTestPop() {
+        if (null == mTestPop) {
+            mTestPop = new TestPop(this);
+        }
+        return mTestPop;
     }
 
     /**

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Animation_PopupWindow_Fade">
+        <item name="android:windowEnterAnimation">@anim/anim_fade_show</item>
+        <item name="android:windowExitAnimation">@anim/anim_fade_hide</item>
+    </style>
+    <style name="Animation_PopupWindow_Input_Method">
+        <item name="android:windowEnterAnimation">@anim/anim_input_method_show</item>
+        <item name="android:windowExitAnimation">@anim/anim_input_method_hide</item>
+    </style>
+</resources>

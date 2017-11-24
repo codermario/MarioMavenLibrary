@@ -24,6 +24,7 @@ public class OvershootLayout extends RelativeLayout implements NestedScrollingPa
     private NestedScrollingChildHelper mChildHelper;
     private int mMaxOverScrollY = 0 + 420;
     private int mMinOverScrollY = 0 - 420;
+    private int mResidueCache = 0;
     private Scroller mScroller;
 
     private boolean mNestedScrollTag = false;
@@ -376,6 +377,8 @@ public class OvershootLayout extends RelativeLayout implements NestedScrollingPa
             }
         }
     }
+
+
 
     /**
      * */

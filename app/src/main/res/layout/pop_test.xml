@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent" >
+
+    <TextView
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:text="假装这就是一个窗口"
+        android:background="#FF254542"
+        android:layout_height="96dp"
+        android:gravity="center"
+        android:id="@+id/text" />
+</RelativeLayout>
